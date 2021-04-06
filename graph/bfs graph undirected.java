@@ -25,15 +25,15 @@ class Graph {
 	static void bfs(ArrayList<ArrayList<Integer>> adj,int v,int s){
 	    boolean[] visited=new boolean[v+1];
 	    Queue<Integer> q=new LinkedList<>();
-	    visited[s]=true;
-	    q.add(s);
+	    visited[s]=true;// source is visited first
+	    q.add(s);// source is added to the queue
 	    while(q.isEmpty()==false){
-	        int curr=q.poll();
-	        System.out.print(curr+" ");
-	        for(int x:adj.get(curr)){
-	            if(visited[x]==false){
-	                visited[x]=true;
-	                q.add(x);
+	        int curr=q.poll();//source is stored and is taken out of the queue
+	        System.out.print(curr+" ");//current vertex is printed
+	        for(int x:adj.get(curr)){//source ke connected vertices are visited 
+	            if(visited[x]==false){//will only work if its not visited before 
+	                visited[x]=true;//all the connected vetices are visited here 
+	                q.add(x);//and added to the queue for the next curr vertex will become the source
 	            }
 	        }
 	    }
